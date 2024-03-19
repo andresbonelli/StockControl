@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}Lista de productos{% endblock %}
+
+{% block container %}
+    <h2>Lista de Productos</h2>
+    
+    <a class="mb-2" href="{% url 'productos_crear' %}">Agregar nuevo producto</a>
+    
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th class="table-primary" scope="col">ID</th>
+                <th class="table-primary" scope="col">Nombre</th>
+                <th class="table-primary" scope="col">Precio (u$s)</th>
+                <th class="table-primary" scope="col">Stock</th>
+                <th class="table-primary" scope="col">Proveedor</th>
+            </tr>   
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+                <tr key={{producto.id}}>
+                    <th class="table-light" scope="row">{{producto.id}}</th>
+                    <td class="table-light">{{producto.nombre}}</td>
+                    <td class="table-light">{{producto.precio}}</td>
+                    <td class="table-light">{{producto.stock_actual}}</td>
+                    <td class="table-light">{{producto.proveedor.nombre}} {{producto.proveedor.apellido}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+    <br>
+    <a href="{% url 'proveedores_listado' %}">Lista de Proveedores</a>
+
+{% endblock %}

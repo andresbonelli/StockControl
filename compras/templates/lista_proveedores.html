@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %}Lista de productos{% endblock %}
+
+{% block container %}
+    <h1>Lista de Proveedores</h1>
+    <a class="mb-3" href="{% url 'proveedores_crear' %}">Agregar nuevo proveedor</a>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th class="table-primary" scope="col">Proveedor</th>
+                <th class="table-primary" scope="col">DNI</th>
+            </tr>   
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                
+                <tr key={{proveedor.dni}}>
+                    <td class="table-light">{{proveedor.nombre}} {{proveedor.apellido}}</td>
+                    <td class="table-light">{{proveedor.dni}}</td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <br>
+    <a href="{% url 'productos_listado' %}">Lista de Productos</a>
+
+{% endblock %}

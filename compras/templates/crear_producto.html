@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block title %}Crear nuevo Producto{% endblock %}
+
+{% block container %}
+    <h1>Crear nuevo Producto</h1>
+    {% if mensaje %}
+      <div class="alert alert-warning" role="alert">
+          {{ mensaje }}
+      </div>
+    {% endif %}
+    <form id="crear-producto" class="crear-producto" action="" method="post">
+        {% csrf_token %}
+        <div class="form group mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="form group mb-3">
+          <label for="Precio" class="form-label">Precio</label>
+          <input type="number" step="0.01" class="form-control" id="precio" name="precio">
+        </div>
+        <div class="form group mb-3">
+          <label for="Stock actual" class="form-label">Stock actual</label>
+          <input type="number" class="form-control" id="Stock actual" name="stock_actual">
+        </div>
+        <select class="form-select mb-3" aria-label="Default select example" name="proveedor">
+          <option selected>Seleccionar proveedor</option>
+          {% for proveedor in proveedores %}
+            <option value={{proveedor.dni}}>{{proveedor.nombre}} {{proveedor.apellido}}</option>
+          {% endfor %}
+          <!-- <option value="nuevo"><a href="{% url 'proveedores_crear' %}">-- Agregar nuevo --</a></option> -->
+        </select>
+        <div class="form group mb-3">
+          <a class="mb-3" href="{% url 'proveedores_crear' %}">Agregar nuevo proveedor</a>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+      </form>
+    <a class="mb-3" href="{% url 'productos_listado' %}">Volver al Listado</a>
+
+{% endblock %}
