@@ -1,9 +1,11 @@
 {% extends "index.html" %}
 {% block title %}Lista de productos{% endblock %}
 
-{% block container %}
-    <h1>Lista de Proveedores</h1>
-    <a class="mb-3" href="{% url 'proveedores_crear' %}">Agregar nuevo proveedor</a>
+{% block content %}
+    
+    <h2 class="p-2">Lista de Proveedores</h2>
+    
+    <a class=" p-2" href="{% url 'proveedores_crear' %}">Agregar nuevo proveedor</a>
     <table class="table mt-3">
         <thead>
             <tr>
@@ -22,8 +24,10 @@
             {% endfor %}
         </tbody>
     </table>
-    
     <br>
-    <a href="{% url 'productos_listado' %}">Lista de Productos</a>
+    <div class="d-flex justify-content-between">
+        <a href="{% url 'productos_listado' %}">Lista de Productos</a>
+    </div>
+    
 
 {% endblock %}

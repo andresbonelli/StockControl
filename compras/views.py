@@ -7,20 +7,17 @@ from .forms import ProductoForm, ProveedorForm
 def home(request):
     return render(request, 'index.html')
 
+# PRODUCTOS
 def listarProductos(request):
     productos = Producto.objects.all()
     return render(request, 'lista_productos.html', {'productos': productos})
 
 def crearProducto(request):
-    proveedores = Proveedor.objects.all()
+    proveedores = Proveedor.objects.all() # pasar el contexto de la DB de proveedores al formulario
     if request.method == 'POST':
         form = ProductoForm(request.POST)
         if form.is_valid():
-            producto = form.save(commit=False)
-            proveedor_dni = request.POST.get('proveedor') # Obtener DNI del proveedor elegido desde  formulario
-            proveedor = Proveedor.objects.get(dni=proveedor_dni) # Buscar proveedor correspondiente en DB por DNI
-            producto.proveedor = proveedor
-            producto.save()
+            form.save()
             return redirect('productos_listado')
         else:
             mensaje = "Por favor, complete todos los campos del formulario."
@@ -28,8 +25,9 @@ def crearProducto(request):
     else:
         form = ProductoForm()
 
-    return render(request, 'crear_producto.html', {'proveedores': proveedores})
+    return render(request, 'crear_producto.html', {'form': form, 'proveedores': proveedores})
 
+# PROVEEDORES
 def listarProveedores(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'lista_proveedores.html', {'proveedores': proveedores})
