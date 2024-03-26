@@ -21,3 +21,9 @@
     margin: auto;
     height: 50px;
 }
+
+
+a svg {
+    color: black;
+    margin: 0px 5px 0px;
+}

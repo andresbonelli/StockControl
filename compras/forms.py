@@ -9,7 +9,17 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = ['nombre', 'precio', 'stock_actual', 'proveedor']
 
+class ProductoEditForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'precio', 'stock_actual']
+
 class ProveedorForm(forms.ModelForm):
     class Meta:
         model = Proveedor
         fields = ['nombre', 'apellido', 'dni']
+
+class ProveedorEditForm(forms.ModelForm):
+    class Meta:
+        model = Proveedor
+        fields = ['nombre', 'apellido']
