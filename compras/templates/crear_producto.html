@@ -43,10 +43,15 @@
         </div>
         <div class="form group mb-3">
           <label for="proveedor" class="form-label">Proveedor</label>
-          <select id="proveedor-select" class="form-select mb-3" aria-label="Default select example" name="proveedor" {% if producto %}disabled{% endif %}>
-            <option selected>{% if producto %}{{producto.proveedor.nombre}} {{producto.proveedor.apellido}}{% else %}-- Seleccionar proveedor --{% endif %}</option>
+          <select
+            id="proveedor-select" 
+            class="form-select mb-3" 
+            aria-label="Default select example" 
+            name="proveedor" 
+            {% if producto %}disabled{% endif %}>
+            <option selected>{% if producto %}{{ producto.proveedor.nombre }} {{ producto.proveedor.apellido }}{% else %}-- Seleccionar proveedor --{% endif %}</option>
             {% for proveedor in proveedores %}
-              <option value={{proveedor.dni}}>{{proveedor.nombre}} {{proveedor.apellido}}</option>
+              <option value={{proveedor.dni}}>{{ proveedor.nombre }} {{ proveedor.apellido }}</option>
             {% endfor %}
           </select>
         </div>
