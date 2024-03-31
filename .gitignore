@@ -1,3 +1,4 @@
 StockControl/static/assets/datosejemplo.txt
 db.sqlite3
 .env
+env
