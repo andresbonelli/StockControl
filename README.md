@@ -38,5 +38,11 @@ pip install -r requirements.txt
 ```bash
 python manage.py runserver
 ```
-  
+
+## Acceso a Django Admin
+
+- **Username**: admin
+- **Password**: admin
+
+
 
