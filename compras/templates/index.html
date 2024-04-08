@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Stock Control{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
@@ -28,11 +29,6 @@
 
             <!-- Imagen de fondo animada con CSS -->
             <img src="{% static 'assets\fondo-stock-control-1.jpg' %}" class="background" alt="fondo">
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.querySelector('.background').classList.add('animate-zoom');
-                });
-            </script>
 
             <!-- Pie de página con logos y link a Github personal -->
             <footer class="fixed-bottom">               
